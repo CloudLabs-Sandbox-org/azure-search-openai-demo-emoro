@@ -1,4 +1,44 @@
 import os
+"""
+This module defines the `Approach` abstract base class and related data structures for implementing 
+custom search and retrieval approaches using Azure Cognitive Search and OpenAI.
+Classes:
+    Document:
+        Represents a document retrieved from the search index, including metadata, embeddings, and captions.
+    ThoughtStep:
+        Represents a step in a thought process, including a title, description, and optional properties.
+    Approach:
+        Abstract base class for implementing custom search and retrieval approaches. Provides methods for 
+        building filters, performing searches, computing embeddings, and managing prompts.
+Methods:
+    Document:
+        serialize_for_results():
+            Serializes the document into a dictionary format suitable for returning as search results.
+        trim_embedding():
+            Trims the embedding vector for display purposes, showing only the first two elements and the count 
+            of remaining elements.
+    Approach:
+        __init__():
+            Initializes the `Approach` class with required clients, configurations, and parameters.
+        build_filter():
+            Constructs a filter string for search queries based on overrides and authentication claims.
+        search():
+            Performs a search query using Azure Cognitive Search, supporting text, vector, and semantic search.
+        get_sources_content():
+            Extracts and formats the content of source documents, optionally using semantic captions.
+        get_citation():
+            Generates a citation string for a source page, with optional handling for image citations.
+        compute_text_embedding():
+            Computes a text embedding vector using OpenAI's embedding model.
+        compute_image_embedding():
+            Computes an image embedding vector using Azure's Computer Vision API.
+        get_system_prompt_variables():
+            Retrieves variables for system prompts, allowing for prompt overrides or injections.
+        run():
+            Abstract method to be implemented by subclasses for executing the approach logic.
+        run_stream():
+            Abstract method to be implemented by subclasses for executing the approach logic with streaming support.
+"""
 from abc import ABC
 from dataclasses import dataclass
 from typing import (
