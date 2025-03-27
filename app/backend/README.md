@@ -1,8 +1,10 @@
-## Backend Documentation
+# Backend Documentation
 
 The `app/backend/` directory contains the backend implementation of the RAG (Retrieval Augmented Generation) chat app. It is built using the [Quart](https://quart.palletsprojects.com/) framework for asynchronous web applications and integrates with Azure services for AI and data processing.
 
-### Directory Structure
+---
+
+## Directory Structure
 
 - **`app.py`**: The main application file that initializes the Quart app and sets up routes, middleware, and configurations.
 - **`config.py`**: Contains configuration settings for the backend, including environment variables and default values.
@@ -24,48 +26,50 @@ The `app/backend/` directory contains the backend implementation of the RAG (Ret
 - **`core/`**: Core utilities and helpers for the backend.
 - **`prepdocslib/`**: Library for preprocessing documents.
 
-### Features
+---
 
-1. **Integration with Azure Services**:
-   - Uses Azure AI Search for document indexing and retrieval.
-   - Supports Azure OpenAI for GPT-based chat functionality.
-   - Includes optional features like speech input/output and vision-based document analysis.
+## Features
 
-2. **Customizable RAG Approaches**:
-   - The `approaches/` folder allows for easy customization of retrieval and generation strategies.
+### 1. Integration with Azure Services
+- **Azure AI Search**: Used for document indexing and retrieval.
+- **Azure OpenAI**: Supports GPT-based chat functionality.
+- **Optional Features**: Includes speech input/output and vision-based document analysis.
 
-3. **Error Handling**:
-   - Centralized error handling is implemented in `error.py` for consistent responses.
+### 2. Customizable RAG Approaches
+- The `approaches/` folder allows for easy customization of retrieval and generation strategies.
 
-4. **Preprocessing Tools**:
-   - The `prepdocs.py` script and `prepdocslib/` library provide tools for preparing documents for ingestion.
+### 3. Error Handling
+- Centralized error handling is implemented in `error.py` for consistent responses.
 
-5. **Containerization**:
-   - The `Dockerfile` enables easy deployment of the backend as a containerized application.
+### 4. Preprocessing Tools
+- The `prepdocs.py` script and `prepdocslib/` library provide tools for preparing documents for ingestion.
 
-### Docs: Backend Requirements
+### 5. Containerization
+- The `Dockerfile` enables easy deployment of the backend as a containerized application.
+
+---
+
+## Docs: Backend Requirements
 
 The backend dependencies are listed in the `requirements.txt` file. Below is a summary of the key dependencies:
 
+### Key Dependencies
 - **Azure SDKs**:
   - `azure-core`, `azure-identity`, `azure-search-documents`, `azure-storage-blob`, `azure-monitor-opentelemetry`, etc.
-
 - **Quart Framework**:
   - `quart`, `quart-cors` for building asynchronous web applications.
-
 - **OpenTelemetry**:
   - `opentelemetry-api`, `opentelemetry-sdk`, `opentelemetry-instrumentation` for monitoring and tracing.
-
 - **AI Libraries**:
   - `openai` for GPT-based chat functionality.
   - `pydantic` for data validation and serialization.
-
 - **Utilities**:
   - `requests`, `httpx` for HTTP requests.
   - `tenacity` for retry logic.
   - `python-dotenv` for environment variable management.
 
-To install the backend requirements, run:
+### Installation
+To install the backend requirements, run the following command:
 
 ```bash
-pip install -r 
+pip install -r requirements.txt
